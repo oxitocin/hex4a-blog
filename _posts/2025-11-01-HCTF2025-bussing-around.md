@@ -45,7 +45,7 @@ Getting into  `Modbus/TCP` specifications, I'm going to lead with some basics:
 - Any device that sends out a Modbus command is the **client**, and the responding device is the **server**.
 - For this challenge, it's important not to overthink the process as you look through this packet capture.
 
-Reading more into the protocol, we can see that the Modbus TCP/IP ADU is specified specified as `MBAP Header + Function code + Data`, with the MBAP (MODBUS Application Protocol) Header structure as follows:
+Reading more into the protocol, we can see that the Modbus TCP/IP ADU is specified specified as `MBAP Header + Function code + Data`, as shown in the table below:
 
 | Name           | Len (Bytes) | Function                                                                              |
 | -------------- | ----------- | ------------------------------------------------------------------------------------- |
@@ -53,13 +53,8 @@ Reading more into the protocol, we can see that the Modbus TCP/IP ADU is specifi
 | Protocol ID    | 2           | 0 for Modbus/TCP                                                                      |
 | Length         | 2           | Number of remaining bytes in the frame                                                |
 | Unit           | 1           | Server address (255 if unused), treated like slave address in Modbus over Serial line |
-
-The frame structure would then be:
-
-| Transaction ID | Protocol ID | Length  | Unit ID | Function code | Data    |
-| -------------- | ----------- | ------- | ------- | ------------- | ------- |
-| 2 bytes        | 2 bytes     | 2 bytes | 1 bytes | 1 bytes       | n bytes |
-
+| Function code  | 1           | Self-explanatory                                                                      |
+| Data           | *n*         | Self-explanatory                                                                      |
 
 Looking at a Modbus packet in Wireshark:
 
