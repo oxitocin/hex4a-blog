@@ -34,7 +34,7 @@ image:
 **Challenge File:** `bussing_around.pcapng`
 ## Solution
 
-Knowing that this packet capture relates to an HMI, which is an ICS system - Interesting! After opening the `.pcapng` in Wireshark, we're greeted with a bunch of [Modbus](https://en.wikipedia.org/wiki/Modbus) traffic (specifically MODBUS/TCP) 
+From the challenge description, this packet capture relates to an HMI, which is an ICS system - Interesting! After opening the `.pcapng` in Wireshark, we're greeted with a bunch of [Modbus](https://en.wikipedia.org/wiki/Modbus) traffic (specifically MODBUS/TCP) 
 
 ![](/assets/img/huntress2025/bussing-around/wireshark-cap-1.png)
 
@@ -45,7 +45,7 @@ Getting into  `Modbus/TCP` specifications, I'm going to lead with some basics:
 - Any device that sends out a Modbus command is the **client**, and the responding device is the **server**.
 - For this challenge, it's important not to overthink the process as you look through this packet capture.
 
-Reading more into the protocol, we can see that the Modbus TCP/IP ADU is specified specified as `MBAP Header + Function code + Data`, as shown in the table below:
+Reading more into the protocol, we can see that the Modbus TCP/IP ADU is specified as `MBAP Header + Function code + Data`, outlined in the table below:
 
 | Name           | Len (Bytes) | Function                                                                              |
 | -------------- | ----------- | ------------------------------------------------------------------------------------- |
