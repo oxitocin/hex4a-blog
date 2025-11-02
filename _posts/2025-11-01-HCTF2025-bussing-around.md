@@ -56,9 +56,10 @@ Reading more into the protocol, we can see that the Modbus TCP/IP ADU is specifi
 
 The frame structure would then be:
 
-| Transaction ID | Protocol ID | Length  | Unit ID | Function code | Data      |
-| -------------- | ----------- | ------- | ------- | ------------- | --------- |
-| 2 bytes        | 2 bytes     | 2 bytes | 1 bytes | 1 bytes       | *n* bytes |
+| Transaction ID | Protocol ID | Length  | Unit ID | Function code | Data    |
+| -------------- | ----------- | ------- | ------- | ------------- | ------- |
+| 2 bytes        | 2 bytes     | 2 bytes | 1 bytes | 1 bytes       | n bytes |
+
 Looking at a Modbus packet in Wireshark:
 
 ![](/assets/img/huntress2025/bussing-around/wireshark-modbus-packet.png)
