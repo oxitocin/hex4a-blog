@@ -10,11 +10,11 @@ I'm a Digital Forensic Analyst with a couple (hundred) incidents under my belt, 
 # What is this?
 This is a silly where I catalogue CTF writeups, malware and threat research, and other ramblings that I think to write about.
 
-# Why am I here?
+### Why am I here?
 I ask myself that question every day 😄
 
-# Who am I?
+#### Who am I?
 Are you okay?
 
-# I don't know who I am!
-. . . . 
+##### I don't know who I am!
+<sub>. . . .</sub> 
