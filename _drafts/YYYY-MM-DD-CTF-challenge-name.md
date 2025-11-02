@@ -22,7 +22,7 @@ image:
 ```
 
 ```
-**Challenge File:** [`challenge_file`](/assets/challenge_files/placeholder)
+**Challenge File:** `challenge_file`
 
 ## Solution
 

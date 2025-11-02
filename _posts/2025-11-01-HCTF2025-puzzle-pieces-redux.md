@@ -12,7 +12,7 @@ date: 2025-11-01
 description: Well, I accidentally put my important data into a bunch of executables ... It was fine... until my cat Sasha stepped on my keyboard and messed everything up! 
 author: hex4a
 image:
-  path: /assets/img/huntress2025/puzzle_pieces_redux/bingus_forensics_puzzle.png
+  path: /assets/img/huntress2025/puzzle-pieces-redux/bingus-forensics-puzzle.png
   alt:
   post: false
 ---
@@ -23,18 +23,20 @@ image:
 - **Author**: @Nordgaren
 
 ## Challenge Description
-```
-Well, I accidentally put my important data into a bunch of executables... just don't ask, okay?
 
-It was fine... until my cat Sasha stepped on my keyboard and messed everything up! OH NOoOoO00!!!!!111
+>Well, I accidentally put my important data into a bunch of executables... just don't ask, okay?
+>
+>It was fine... until my cat Sasha stepped on my keyboard and messed everything up! OH NOoOoO00!!!!!111
+>
+>Can you help me recover my important data?
+{: .prompt-info }
 
-Can you help me recover my important data?
-```
-**Challenge File:** [`puzzle-pieces-redux.7z`](/assets/challenge_files/huntress2025/puzzle_pieces_redux/puzzle-pieces-redux.7z)
+**Challenge File:** `puzzle-pieces-redux.7z`
 ## Solution
 
 Upon unzipping the challenge file archive, we're greeted with a handful of .bin files - let's identify their filetypes to put this puzzle together! 
-[](/assets/img/huntress2025/puzzle_pieces_redux/binfiles.png)
+
+![](/assets/img/huntress2025/puzzle-pieces-redux/binfiles.png)
 
 ```zsh
 ➜ ef ** [| run "file {path}" ]]

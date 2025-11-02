@@ -12,7 +12,7 @@ date: 2025-11-01
 description: "One of the engineers noticed that an HMI way going haywire ... Can you help us figure out what's going on?"
 author: hex4a
 image:
-  path: assets/img/huntress2025/bussing_around/wiresharklogo.png
+  path: assets/img/huntress2025/bussing-around/wiresharklogo.png
   alt:
   post: false
 ---
@@ -24,19 +24,19 @@ image:
 - **Author**: @Soups71
 
 ## Challenge Description
-```
-One of the engineers noticed that an HMI was going haywire.
+> One of the engineers noticed that an HMI was going haywire.
+>
+>He took a packet capture of some of the traffic but he can't make any sense of it... it just looks like gibberish!
+>
+>For some reason, some of the traffic seems to be coming from someone's computer. Can you help us figure out what's going on?
+{: .prompt-info } 
 
-He took a packet capture of some of the traffic but he can't make any sense of it... it just looks like gibberish!
-
-For some reason, some of the traffic seems to be coming from someone's computer. Can you help us figure out what's going on?
-```
-**Challenge File:** [`bussing_around.pcapng`](/assets/challenge_files/huntress2025/bussing_around/bussing_around.pcapng)
+**Challenge File:** `bussing_around.pcapng`
 ## Solution
 
 Knowing that this packet capture relates to an HMI, which is an ICS system - Interesting! After opening the `.pcapng` in Wireshark, we're greeted with a bunch of [Modbus](https://en.wikipedia.org/wiki/Modbus) traffic (specifically MODBUS/TCP) 
 
-![](/assets/img/huntress2025/bussing_around/wireshark_cap_1.png)
+![](/assets/img/huntress2025/bussing-around/wireshark-cap-1.png)
 
 Coming into this challenge, I was unfamiliar with the Modbus protocol. Reading into the data structure and various implementations, we can see that this implementation is `Modbus/TCP` (or `Modbus TCP/IP`). 
 
@@ -61,11 +61,11 @@ The frame structure would then be:
 | 2 bytes        | 2 bytes     | 2 bytes | 1 bytes | 1 bytes       | *n* bytes |
 Looking at a Modbus packet in Wireshark:
 
-![](/assets/img/huntress2025/bussing_around/wireshark_modbus_packet.png)
+![](/assets/img/huntress2025/bussing-around/wireshark-modbus-packet.png)
 
 Following the TCP stream, we can see that command queries are being echoed by the server, so we know to filter for only queries or responses.
 
-![](/assets/img/huntress2025/bussing_around/wireshark_tcp_stream.png)
+![](/assets/img/huntress2025/bussing-around/wireshark-tcp-stream.png)
 
 With our knowledge of the MBAP, we can filter our modbus traffic and learn which function codes are being used here:
 ```zsh
@@ -93,15 +93,15 @@ I can assure you much time was spent checking if this was some compressed or enc
 
 Next, I looked at the function 6 data
 
-![](/assets/img/huntress2025/bussing_around/function_6_data.png)
+![](/assets/img/huntress2025/bussing-around/function-6-data.png)
 
 This data looked like it could've been many things - especially when splitting up by register, I thought there may be some interesting encoding at play with the dumped register 4 data:
 
-![](/assets/img/huntress2025/bussing_around/interesting_register_data.png)
+![](/assets/img/huntress2025/bussing-around/interesting-register-data.png)
 
 However, after almost four (4) days of overthinking, we put our heads together to attempt to _underthink_, and thought about checking for binary numbers without separating the registers:
 
-![](/assets/img/huntress2025/bussing_around/binary_data_from_registers.png)
+![](/assets/img/huntress2025/bussing-around/binary-data-from-registers.png)
 
 Well look at that! Decoding the binary number data:
 ```zsh
