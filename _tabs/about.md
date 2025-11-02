@@ -4,5 +4,17 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+# Who is hex4a?
+I'm a Digital Forensic Analyst with a couple (hundred) incidents under my belt, who dabbles in malware / threat research from time to time - I don't consider myself a CTFer, but have participated in some that pique my interest, mostly participating for the fun malware and forensics challenges!
+
+# What is this?
+This is a silly where I catalogue CTF writeups, malware and threat research, and other ramblings that I think to write about.
+
+# Why am I here?
+I ask myself that question every day 😄
+
+# Who am I?
+Are you okay?
+
+# I don't know who I am!
+. . . . 
