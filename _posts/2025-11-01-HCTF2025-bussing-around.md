@@ -60,6 +60,7 @@ The frame structure would then be:
 | -------------- | ----------- | ------- | ------- | ------------- | ------- |
 | 2 bytes        | 2 bytes     | 2 bytes | 1 bytes | 1 bytes       | n bytes |
 
+
 Looking at a Modbus packet in Wireshark:
 
 ![](/assets/img/huntress2025/bussing-around/wireshark-modbus-packet.png)
